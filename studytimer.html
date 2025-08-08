@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">    
+    // This is the main HTML structure for the study timer application
+<head>
+<title>Bite-Sized Timer</title>    
+    <link rel="stylesheet" href ="timerstyle.css">
+    <script src="studytimer.js"></script>
+<meta charset="UTF-8">
+</head>
+
+<body>
+    // This is just a quote to motivate users
+    <h3 class="cornerquote">Luck finds its way to those who have <br> put in the hard work</h3>
+
+    <div class="container">
+        <label for="taskCheckbox" id="taskLabel">To-Do List</label>
+        <input type = checkbox id="taskCheckbox" class="taskCheckbox">
+    
+    // This is the to-do list section where users can add tasks    
+    <div class="container"> 
+    
+        <ul id="taskList">
+        <li><input type="text" id="taskInput" placeholder="enter a task..."> </li>
+        <li><input type="text" id="taskInput" placeholder="enter a task..."> </li>
+        <li><input type="text" id="taskInput" placeholder="enter a task..."> </li>
+        </ul>
+         <button id="addTaskButton">Add Task</button>
+    </div>
+
+    // This is the timer section where users can set a timer for work and break periods
+       
+            <div id="timerDisplay">0:25:00</div>
+
+        <button id="startButton" class="timerbutton">Start</button>
+        <button id="resetButton"class="timerbutton">Reset</button>
+        <button id="pauseButton"class="timerbutton">Pause</button>
+    </div>
+
+    // This is the collapsable section where users can set the timer status
+
+    <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a> //This is the close "X" button for the sidebar
+    <h2>Timer settings</h2>
+      Work time: <input type="number" id="hoursInput" placeholder="Hours" min="0" max="3"> : <input type="number" id="minutesInput" placeholder="Minutes (25 by default)" min="1" max="59">  
+      Break time: <input type="number" id="breakMinutesInput" placeholder="Minutes (5 by default)" min="1" max="60">:<input type="number" id="breakSecondsInput" placeholder="Seconds (0 by default)" min="00" max="59">
+      Number of sessions: <input type="number" id="sessionInput" placeholder="Sessions (3 by default)" min="1" max="10">
+
+      inputcheckbox: <input type="checkbox" id="gamifyCheckbox"> Gamify Timer (sound effects, leveling up, gamer theme)
+      inputcheckbox: <input type="checkbox" id="quotesCheckbox"> Motivational Quotes
+      inputcheckbox: <input type="checkbox" id="soundCheckbox"> Play sound when done
+
+        <button id="saveSettingsButton">Save Settings</button> // This is the button to save the settings
+        <button id="resetSettingsButton">Reset Settings</button> // This is the button to reset the settings to default
+
+
+    </div>
+
+<div id="main">
+  <button id="openbtn" onclick="openNav()">&#9776; timer settings</button> //This is the button to open sidebar.
+
+</body>
+<footer>
+    <p class="footnotes">Join our discord server GREAT EXPECTASIANS! :D We are a community of Asian students who support each other in our studies and beyond: <a href="https://discord.gg/xNnXpMXn">Join here!</a></p>
+    <p class = "footnotes">Disclaimer: You don't have to be Asian to join the group chat. We accept hard-working students of every kind as long as you are respectful and abide to the guidelines.</p>
+    <p class="footnotes">This timer is inspired by the Pomodoro technique, which suggests working for 25 minutes and then taking a 5-minute break. You can customize the work and break times in the settings.</p>
+</footer>
+
+</html>
