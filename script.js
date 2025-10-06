@@ -26,74 +26,80 @@ function closeNav() {
 //......this is just a barrier since my eyes always hurt when I look at code bunched up together ..................
 
 if (document.getElementById('hoursInput').value= "") {
-    hoursInput.value = 0;
+    hoursInput = 0;
 }
 if (document.getElementById('minutesInput').value = "") {
     // If minutes input is empty, set it to 25 minutes by default
-    minutesInput.value = 25;
+    minutesInput = 25;
     let studyTime = 25 * 60; // Default study time in seconds
 }
 else {
-    let studyTime = hoursInput.value * 3600 + minutesInput.value * 60
+    let studyTime = hoursInput * 3600 + minutesInput * 60
 }
 
 if (document.getElementById('breakMinutesInput').value === "") {
-    breakMinutesInput.value = 5;
+    breakMinutesInput = 5;
 }
 if (document.getElementById('breakSecondsInput').value === "") {
-    breakSecondsInput.value = 0;
+    breakSecondsInput = 0;
     let breakTime = 5 * 60;
 }
 else{
-    let breakTime = breakMinutesInput.value * 60 + breakSecondsInput.value;
+    let breakTime = breakMinutesInput * 60 + breakSecondsInput;
 }
 
 //function to update the timer display...
 
-document.getElementById("timerDisplay").textContent = hoursInput.value + ":" + minutesInput.value + ":00";
-let breakTime = breakMinutesInput.value * 60 + breakSecondsInput.value;
+document.getElementById("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
+let breakTime = breakMinutesInput * 60 + breakSecondsInput;
 let countdown = null
 
 function startTimer(studyTime, onEnd) {
   if (!countdown) {
     countdown = setInterval(function() {
       studyTime--;
-      let hours = Math.floor(time / 3600);
-      let minutes = Math.floor((time % 3600) / 60);
-        let seconds = time % 60;
-      document.getElementById("timerDisplay").textContent = hours.value + ":" + minutes.value + ":" + seconds.value;
+      let hours = Math.floor(studyTime / 3600);
+      let minutes = Math.floor((studyTime % 3600) / 60);
+        let seconds = studyTime % 60;
+      document.getElementById("timerDisplay").textContent = hours + ":" + minutes + ":" + seconds;
 
     }, 1000);
   }
     if (studyTime <= 0) {
-        clearInterval(countdown);
-        countdown = null;
-        let studyTime = hoursInput.value * 3600 + minutesInput.value * 60; 
-          alert(`Amazing! Session ${i} done! ${sessionNumber.value - 1} sessions left after we take a break!`);
-        isBreak = true
-      }
       if (onEnd) onEnd();
     }
+ 
+ function loopStudy() {
+  startTimer(studyTime, function() {
+     clearInterval(countdown);
+     let countdown = null;
+     let studyTime = hoursInput * 3600 + minutesInput * 60; 
+     alert(`Amazing! ${currentSession} done! ${sessionNumbe - currentSession} sessions left after we first take a break!`);
+     isBreak = true 
+     document.getElementbyId("timerDisplay").textContent = breakMinutesInput + ":" + breakSecondsInput
+  startTimer(breakTime, function() {
+   alert("Break timer over! Prep for the next study session!!!")
+   currentSession++;
+   document.getElementbyId("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
+    if (currentSession <= sessionCount) {
+        loopStudy();
+      } else {
+        alert("All sessions complete! Good work!");
+      }
+  
+  })
+      }
+  })
+ }
 
-document.getElementById("startButton").onclick = 
-function loopTimer() {
-  for (let i = 0; i < 5; i++) {
-    startTimer(studyTime, function() {
-      alert(`Amazing, session ${i+1} done! Break time, then ${sessionNumber.value - (i+1)} more sessions left!`);
-      clearInterval(countdown);
-      let breakTime = breakMinutesInput.value * 60 + breakSecondsInput.value;
-          document.getElementById("timerDisplay").textContent = "Break Time!";
-          document.getElementById("timerDisplay").textContent = breakMinutesInput.value + ":" + breakSecondsInput.value;
-      startTimer(breakTime, function() {
-        alert("Break over! Back to study, you got this!")
-         clearInterval(countdown);
-            countdown = null;
-          });
-});
+ document.getElementbyId("startButton").onclick = function() {
+  current session = 1;
+  loopStudy();
+ }
 
-  }
-}
-  // pause button functionality: it pauses the timer, but does not reset it.
+
+
+//pause timer function: it pauses the timer, but does not reset it.
 document.getElementById("pauseButton").onclick = function pauseTimer() {
   if (!isPaused) {
     clearInterval(countdown);
@@ -207,5 +213,6 @@ document.getElementById("focusBtn").onclick = function focusTask() {
 
 
     
+
 
 
