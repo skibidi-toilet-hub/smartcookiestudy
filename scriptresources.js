@@ -2,21 +2,19 @@
 //first we are gonna make the array for our notes. These are our current notes but we will keep adding
 
 const notes = [
-  { title: "Compounds of Life", subject: "Biology", link: "https://docs.google.com/document/d/1rp3mzONRls5FifB_oemupViK7D6OJrLVnw4IivvN-dY/edit?usp=sharing" },
-  { title:"Structure of Eukaryotic Cells", subject: "Biology", link: "https://docs.google.com/document/d/1lBd2BvTTCU0As_VXXyiFvkyIoyeE73o9GV_Mq_bpFHo/edit?tab=t.0#heading=h.kz0du7p8bw1b" },
-  { title:"", subject:"", link:"" },
-  { title:"Finding Secotrs and Arcs (degrees)", subject:"Geometry", link:"" },
+  { title: "Compounds of Life-that fat, protein, etc.", subject: "Biology", link: "https://docs.google.com/document/d/1rp3mzONRls5FifB_oemupViK7D6OJrLVnw4IivvN-dY/edit?usp=sharing" },
+  { title:"Structure of Eukaryotic Cells-the bricks in our bricks", subject: "Biology", link: "https://docs.google.com/document/d/1lBd2BvTTCU0As_VXXyiFvkyIoyeE73o9GV_Mq_bpFHo/edit?tab=t.0#heading=h.kz0du7p8bw1b" },
+  { title:"Enzymes-the helpers in our bodies", subject: "Biology", link: ""},
+  { title:"Hydrologic Cycle-water flowing through Earth", subject:"Environmental Science", link:"" },
+  { title:"Weather Fronts & Air Masses-properties and weather", subject:"Environmental Science", link:""},
+  { title:"Formation of Natural Disasters-hurricanes, tornadoes, etc.", subject: "Environmental Science", link: ""},
+  { title:"Inscribed Angle Proof (Khan Academy)", subject:"Geometry", link:"https://www.khanacademy.org/math/geometry/hs-geo-circles/hs-geo-inscribed-angles/a/inscribed-and-central-angles-proof" },
+  { title:"Finding Sectors and Arcs (degrees)", subject:"Geometry", link:"" },
   { title:"Imaginary and Complex Numbers", subject:"Algebra 2 (II)", link:"https://docs.google.com/document/d/1rGKOT4ttsSZsBpoLk8Txl6Ovhl_obSLyRHksqHWz5v4/edit?usp=sharing" },
-  { title:"", subject:"", link:"" },
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
-  { title:"", subject:"", link:""},
+  { title:"Adding, FOIL-ing, and 'Defining' Polynomials", subject:"", link:""},
+  { title: "Degree, Zeros, Factors-how to find the polynomial shape", subject:"", link:""},
+  { title:"The French and Indian War Overivew-britain and america tea pt. 2", subject:"US History", link:""},
+  { title:"British Policies for Colonial America-brintain and america tea pt. 3", subject:"US History", link:""},
 ];
 document.getElementById("searchBtn").onclick = function(e) {
     e.preventDefault(); // Prevent form submission
@@ -37,6 +35,7 @@ function displayResults(results) {
         });
     }
 }
+
 
 
 
