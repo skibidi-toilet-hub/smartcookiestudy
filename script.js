@@ -3,11 +3,12 @@ const timerDisplay = document.getElementById('timerDisplay');
 const startButton = document.getElementById('startButton');
 const resetButton = document.getElementById('resetButton');
 const pauseButton = document.getElementById('pauseButton');
- let taskList = document.getElementById("taskList");
-let hoursInput = document.getElementById('hoursInput').value;
-let minutesInput = document.getElementById('minutesInput').value;
-let breakMinutesInput = document.getElementById('breakMinutesInput').value;
-let breakSecondsInput = document.getElementById('breakSecondsInput').value;
+const taskList = document.getElementById("taskList");
+const hoursInput = document.getElementById('hoursInput').value;
+const minutesInput = document.getElementById('minutesInput').value;
+const breakMinutesInput = document.getElementById('breakMinutesInput').value;
+let currentSession = 1
+let sessionCount = 4;
 let isPaused = false;
 let isBreak = false;
 })
@@ -23,68 +24,55 @@ function closeNav() {
   document .getElementById("mySidebar").style.height = "0";
 }
 
-//......this is just a barrier since my eyes always hurt when I look at code bunched up together ..................
+//........................
 
-if (document.getElementById('hoursInput').value= "") {
-    hoursInput = 0;
-}
-if (document.getElementById('minutesInput').value = "") {
-    // If minutes input is empty, set it to 25 minutes by default
-    minutesInput = 25;
-    let studyTime = 25 * 60; // Default study time in seconds
-}
-else {
-    let studyTime = hoursInput * 3600 + minutesInput * 60
-}
-
-if (document.getElementById('breakMinutesInput').value === "") {
-    breakMinutesInput = 5;
-}
-if (document.getElementById('breakSecondsInput').value === "") {
-    breakSecondsInput = 0;
-    let breakTime = 5 * 60;
-}
-else{
-    let breakTime = breakMinutesInput * 60 + breakSecondsInput;
-}
-
-//function to update the timer display...
+ hoursInput === "" ? 0 : parseInt(hoursInput, 10);
+ minutesInput === "" ? 25 : parseInt(minutesInput, 10);
+ breakMinutesInput === "" ? 5 : parseInt(minutesInput, 10);
 
 document.getElementById("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
-let breakTime = breakMinutesInput * 60 + breakSecondsInput;
 let countdown = null
 
+function updateDisplay(studyTime)  {
+  let hours = Math.floor(studyTime / 3600);
+  let minutes = Math.floor((studyTime % 3600) / 60);
+  let seconds = studyTime % 60;
+  document.getElementById("timerDisplay").textContent =
+    `${hours}:${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
+
 function startTimer(studyTime, onEnd) {
-  if (!countdown) {
+  if (countdown === null) {
     countdown = setInterval(function() {
       studyTime--;
-      let hours = Math.floor(studyTime / 3600);
-      let minutes = Math.floor((studyTime % 3600) / 60);
-        let seconds = studyTime % 60;
-      document.getElementById("timerDisplay").textContent = hours + ":" + minutes + ":" + seconds;
-
-    }, 1000);
-  }
-    if (studyTime <= 0) {
+      updateDisplay(studyTime);
+     if (studyTime <= 0) {
+      clearInterval(countdown)
+      countdown = null
       if (onEnd) onEnd();
-    }
- 
- function loopStudy() {
+      }
+    }, 1000);
+   else {
+    alert("You already have a timer open!") 
+   }
+  }
+   
+function loopStudy() {
+  let countdown = null;
+  let studyTime = hoursInput * 3600 + minutesInput * 60; 
   startTimer(studyTime, function() {
      clearInterval(countdown);
-     let countdown = null;
-     let studyTime = hoursInput * 3600 + minutesInput * 60; 
-     alert(`Amazing! ${currentSession} done! ${sessionNumbe - currentSession} sessions left after we first take a break!`);
+     alert(`Amazing! ${currentSession} done! ${sessionNumber - currentSession} sessions left after our break!`);
      isBreak = true 
-     document.getElementbyId("timerDisplay").textContent = breakMinutesInput + ":" + breakSecondsInput
-  startTimer(breakTime, function() {
+     document.getElementById("timerDisplay").textContent = breakMinutesInput + ":" + breakSecondsInput
+  startTimer(breakTime, function() 
    alert("Break timer over! Prep for the next study session!!!")
    currentSession++;
-   document.getElementbyId("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
+   document.getElementById("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
     if (currentSession <= sessionCount) {
         loopStudy();
       } else {
-        alert("All sessions complete! Good work!");
+        alert("All sessions are complete! Great work!");
       }
   
   })
@@ -92,19 +80,21 @@ function startTimer(studyTime, onEnd) {
   })
  }
 
- document.getElementbyId("startButton").onclick = function() {
-  current session = 1;
+ document.getElementById("startButton").onclick = function() {
+   // grab the user’s session count input
+  const inputValue = document.getElementById("sessionCountInput").value.trim();
+  // if it's empty, keep the default (4), otherwise convert to a number
+  sessionNumber === "" ? 4 : parseInt(inputValue, 10);
+  currentSession = 1;
   loopStudy();
  }
-
-
-
+ 
 //pause timer function: it pauses the timer, but does not reset it.
 document.getElementById("pauseButton").onclick = function pauseTimer() {
   if (!isPaused) {
     clearInterval(countdown);
     countdown = null;
-    let isPaused = true;
+   isPaused = true;
   }
 }
 // reset button functionality: it resets the timer back to the original user input time.
@@ -112,7 +102,7 @@ document.getElementById("resetButton").onclick = function resetTimer() {
   clearInterval(countdown);
   countdown = null;
   document.getElementById("timerDisplay").textContent = hoursInput.value + ":" + minutesInput.value + ":00";
-  let isPaused = false;
+  let isPaused = true;
 }
   
     //confirm if the "motivational quotes" checkbox is checked, then present a motivational quote every 5 minutes in the html box.
@@ -132,87 +122,6 @@ if (document.getElementById("motivationalQuotes").checked) {
          document.getElementById("quoteBox").textContent = getRandomQuote();
       }
     else{
-      document.getElementById("quoteBox").textContent = `Session ${i+1}/${sessionNumber.value}`
+      document.getElementById("quoteBox").textContent = `Session ${currentSession}/ ${sessionNumber}`
     }
-
-// to do list portion...enter in tasks in a list depending on user input
-document.getElementById("todoBtn").onclick = openTodos();
-document.getElementsById("closebtn").onclick = closeTodos();
-
-function openTodos() {
-  document.getElementById("mySidebar").style.width = "300px";
-  document.getElementById("mySidebar").style.height = "100%";
-}
-
-function closeTodos() {
-  document.getElementById("mySidebar").style.width = "0";
-  document .getElementById("mySidebar").style.height = "0";
-}
-
-document.getElementbyId("addTaskBtn").onclick = function addTask() {
-  let listElement = document.createElement("ul");
-  let listCheckBox = document.createElement("input");
-  listCheckBox.type = "checkbox";
-  taskLabel = document.createElement("span");
-  taskLabel.textContent = document.getElementById("taskInput").value;
-  let deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "X";
-  deleteBtn.id = "deleteBtn";
-  let focusBtn = document.createElement("button");
-  focusBtn.textContent = "Focus on this!"
-  focusBtn.id = "focusBtn";
-  if (taskInput.value === "") {
-    alert("You must enter a task first!");
-    return false; // Prevent form submission
-  }
-
-  taskList.appendChild(listCheckBox);
-  taskList.appendChild(taskLabel);
-  taskList.appendChild(listElement);
-  taskList.appendChild(deleteBtn);
-  taskList.appendChild(focusBtn);
-
-   listCheckBox.addEventListener("change", function() {
-    if (listCheckBox.checked) {
-      taskLabel.style.textDecoration = "line-through";
-      taskLabel.style.color = "grey";
-      deleteBtn.disabled = false;
-    } else {
-      taskLabel.style.textDecoration = "none";
-      taskLabel.style.color = "black";
-      deleteBtn.disabled = true;
-    }
-  });
-
-  taskInput.value = ""; // Clear input field after adding
-  return false; // Prevent form submission
-  const checked = listCheckBox.checked;
-}
-
-//if the number of checkboxes exceeds 5, then alert the user that no more tasks can be added until some are checked off.
-if (taskList.children.length > 5) {
-  alert("You can only enter a minimum of 5 tasks. Try deleting your tasks with the red X button next to each task after checking them off.");
-  document.getElementById("addTaskBtn").disabled = true;
-  document.getElementById("taskInput").placeholder = "no more missions for now!";
-}
-
-document.getElementById("deleteBtn").onclick = function deleteTask() {
-  taskList.removeChild(listElement);
-  document.getElementById("deleteBtn").disabled = true;
-}
-
-document.getElementById("focusBtn").onclick = function focusTask() {
-  taskLabel.style.color = "green";
-  taskLabel.style.fontWeight = "bold";
-  taskLabel.style.fontSize = "larger";
-  taskLabel.textContent = "‼️" + taskLabel.textContent + "‼️";
-  let focusTask = taskLabel.textContent;
-}
-
-
-
-
-    
-
-
 
