@@ -4,7 +4,7 @@
 <head>
 <title>Bite-Sized Timer</title>    
     <link rel="stylesheet" href ="timerstyle.css">
-    <script src="studytimer.js"></script>
+    <script src="script.js"></script>
 <meta charset="UTF-8">
 </head>
 
@@ -16,16 +16,7 @@
         <label for="taskCheckbox" id="taskLabel">To-Do List</label>
         <input type = checkbox id="taskCheckbox" class="taskCheckbox">
     
-    // This is the to-do list section where users can add tasks    
-    <div class="container"> 
-    
-        <ul id="taskList">
-        <li><input type="text" id="taskInput" placeholder="enter a task..."> </li>
-        <li><input type="text" id="taskInput" placeholder="enter a task..."> </li>
-        <li><input type="text" id="taskInput" placeholder="enter a task..."> </li>
-        </ul>
-         <button id="addTaskButton">Add Task</button>
-    </div>
+
 
     // This is the timer section where users can set a timer for work and break periods
         <div id="pinBox">What would you like to focus on (pin) right now? <div>
@@ -40,7 +31,7 @@
     // This is the collapsable section where users can set the timer status
 
     <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a> //This is the close "X" button for the sidebar
+  <button id="closebtn" onclick="closeNav()">&times;</button> //This is the close "X" button for the sidebar
     <h2>Timer settings</h2>
       Work time: <input type="number" id="hoursInput" placeholder="Hours" min="0" max="3"> : <input type="number" id="minutesInput" placeholder="Minutes (25 by default)" min="1" max="59">  
       Break time: <input type="number" id="breakMinutesInput" placeholder="Minutes (5 by default)" min="1" max="60">:<input type="number" id="breakSecondsInput" placeholder="Seconds (0 by default)" min="00" max="59">
@@ -60,10 +51,11 @@
 
 </body>
 <footer>
-    <p class="footnotes">Join our discord server GREAT EXPECTASIANS! :D We are a community of Asian students who support each other in our studies and beyond: <a href="https://discord.gg/xNnXpMXn">Join here!</a></p>
+    <p class="footnotes">Join our discord server GREAT EXPECTASIANS! :D We are a community of Asian students who support each other in our studies and beyond: <a href= https://discord.gg/7pjGYkY4W4>Join here!</a></p>
     <p class = "footnotes">Disclaimer: You don't have to be Asian to join the group chat. We accept hard-working students of every kind as long as you are respectful and abide to the guidelines.</p>
     <p class="footnotes">This timer is inspired by the Pomodoro technique, which suggests working for 25 minutes and then taking a 5-minute break. You can customize the work and break times in the settings.</p>
 </footer>
 
 
 </html>
+
