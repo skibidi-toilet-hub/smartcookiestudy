@@ -4,11 +4,11 @@ const startButton = document.getElementById('startButton');
 const resetButton = document.getElementById('resetButton');
 const pauseButton = document.getElementById('pauseButton');
 const taskList = document.getElementById("taskList");
-const hoursInput = document.getElementById('hoursInput').value;
-const minutesInput = document.getElementById('minutesInput').value;
-const breakMinutesInput = document.getElementById('breakMinutesInput').value;
+const hoursInput = document.getElementById('hoursInput').value.trim;
+const minutesInput = document.getElementById('minutesInput').value.trim;
+const breakMinutesInput = document.getElementById('breakMinutesInput').value.trim;
+const sessionNumber = document.getElementById("sessionCountInput").value.trim();
 let currentSession = 1
-let sessionCount = 4;
 let isPaused = false;
 let isBreak = false;
 })
@@ -33,7 +33,7 @@ function closeNav() {
 document.getElementById("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
 let countdown = null
 
-function updateDisplay(studyTime)  {
+function updateRealDisplay(studyTime)  {
   let hours = Math.floor(studyTime / 3600);
   let minutes = Math.floor((studyTime % 3600) / 60);
   let seconds = studyTime % 60;
@@ -46,12 +46,12 @@ function startTimer(studyTime, onEnd) {
     countdown = setInterval(function() {
       studyTime--;
       updateDisplay(studyTime);
+         }, 1000);
      if (studyTime <= 0) {
       clearInterval(countdown)
       countdown = null
       if (onEnd) onEnd();
       }
-    }, 1000);
    else {
     alert("You already have a timer open!") 
    }
@@ -81,10 +81,7 @@ function loopStudy() {
  }
 
  document.getElementById("startButton").onclick = function() {
-   // grab the user’s session count input
-  const inputValue = document.getElementById("sessionCountInput").value.trim();
-  // if it's empty, keep the default (4), otherwise convert to a number
-  sessionNumber === "" ? 4 : parseInt(inputValue, 10);
+  sessionNumber === "" ? 4 : parseInt(sessionNumber, 10);
   currentSession = 1;
   loopStudy();
  }
@@ -124,4 +121,5 @@ if (document.getElementById("motivationalQuotes").checked) {
     else{
       document.getElementById("quoteBox").textContent = `Session ${currentSession}/ ${sessionNumber}`
     }
+
 
