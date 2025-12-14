@@ -3,32 +3,34 @@
 .heading {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-variant: lowercase;
+    font-variant: small-caps;
     font-weight: bold;
+    font-size: 60px;
+    text-align: center;
 }
 
 .italics {
     font-style: italic;
+    font-size: 20px;
+    text-align: center;
 }
 
 .footnotes {
-    font-size: small;
+    font-size: 10px;
     text-align: center;
     font-style: italic;
+    
+}
+
+body {
+
+ background-image: url("https://t4.ftcdn.net/jpg/02/67/40/21/240_F_267402109_jZvsqRQUvSxohAOmcUt549jlapqoRHM0.jpg");
+
 }
 
 main {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.listfeatures {
-    background-color: rgb(167, 206, 248);
-    border-color: rgb(0, 13, 58);
-}
-
-.h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-
-}
