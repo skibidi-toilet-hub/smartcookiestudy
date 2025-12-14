@@ -11,8 +11,8 @@ const notes = [
   { title:"Basics of potential and kinetic energy", subject: "Physics", link: "https://docs.google.com/document/d/1hGz1Hd51uuiiqp5CpE8YAthbqoCK-Hs0L4ByfAuk0ek/edit?usp=sharing"
   { title:"Inscribed Angle Proof (Khan Academy)", subject:"Geometry", link:"https://www.khanacademy.org/math/geometry/hs-geo-circles/hs-geo-inscribed-angles/a/inscribed-and-central-angles-proof" },
   { title:"Imaginary and Complex Numbers", subject:"Algebra 2 (II)", link:"https://docs.google.com/document/d/1rGKOT4ttsSZsBpoLk8Txl6Ovhl_obSLyRHksqHWz5v4/edit?usp=sharing" },
-  { title:"Adding, FOIL-ing, and 'Defining' Polynomials", subject:"", link:""},
-  { title: "Degree, Zeros, Factors-how to find the polynomial shape", subject:"", link:""},
+  { title:"Adding, FOIL-ing, and 'Defining' Polynomials", subject:"Algebra 2 (II)", link:""},
+  { title:"Degree, Zeros, Factors-how to find the polynomial shape", subject:"Algebra 2 (II)", link:""},
   { title:"The French and Indian War Overivew-britain and america tea pt. 1", subject:"US History", link:"https://docs.google.com/document/d/1dMeVZCPg2PbqewWd2Srf_dA6_GQkEHFPlcy6TyGJnH0/edit?usp=sharing"},
   { title:"British Policies for Colonial America-britain and america tea", subject:"US History", link:"https://docs.google.com/document/d/1-eKMBDBDJ4uMvNJtAO0FIGzCV4KnMShclXM8kC2YZdY/edit?usp=sharing"},
 ];
@@ -35,6 +35,7 @@ function displayResults(results) {
         });
     }
 }
+
 
 
 
