@@ -78,7 +78,7 @@ function loopStudy() {
     if (currentSession <= sessionCount) {
         loopStudy();
       } else {
-        alert("All sessions are complete! Great work!");
+          alert("All sessions are complete! Great work!");
       }
   
   })
@@ -140,14 +140,15 @@ if (document.getElementById("motivationalQuotes").checked) {
     return quotes[Math.floor(Math.random() * quotes.length)];
   }
   // Set first quote immediately
+function showQuote {
   document.getElementById("quoteBox").textContent = getRandomQuote();
+}; 
 
   // Update every 5 minutes
-  setInterval(() => {
-    document.getElementById("quoteBox").textContent = getRandomQuote();
-  }, 1000 * 60 * 5);
+setInterval(() => showQuote(), 1000 * 60 * 5);
 
-} else {
-  document.getElementById("quoteBox").textContent =
+}  else {
+     document.getElementById("quoteBox").textContent =
     `Session ${currentSession} / ${sessionNumber}`;
 }
+
