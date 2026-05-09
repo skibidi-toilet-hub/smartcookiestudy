@@ -54,27 +54,30 @@ function startTimer(studyTime, onEnd) {
   }
 }
 }
-   
+
+//fix these two....
+
 function loopStudy() {
   let countdown = null;
   startTimer(studyTime, function() {
      clearInterval(countdown);
-     alert(`Amazing! ${currentSession} done! ${sessionNumber - currentSession} sessions left after our break!`);
+     alert(`Session ${currentSession} done! ${sessionNumber - currentSession} sessions left after our break!`);
      isBreak = true 
      document.getElementById("timerDisplay").textContent = `${brkMinAmount.toString().padStart(2, '0')}:00`;
+  })
      startTimer(breakTime, function() {
-       alert("Break timer over! Prep for the next study session!!!")
+       alert("Break timer over! Prep for the next session!!!")
        currentSession++;
        document.getElementById("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
        if (currentSession <= sessionCount) {
          loopStudy();
       } else {
-          alert("All sessions are complete! Great work!");
+          alert("All done! Great work!");
       }
   
   })
       }
-  })
+  
  }
 
  document.getElementById("startButton").onclick = function TIMER() {
@@ -91,28 +94,34 @@ function loopStudy() {
  }
  
 //pause timer function: it pauses the timer, but does not reset it.
+
 document.getElementById("pauseButton").onclick = function pauseTimer() {
   if (!isPaused) {
     clearInterval(countdown);
     countdown = null;
-   isPaused = true;
+    isPaused = true;
   }
     
+  
   else if (isPaused) {
+     alert(`Session ${currentSession} resumed.`);
      startTimer(studyTime, function() {
-       alert(`Session ${currentSession} resumed and completed!`);
+       alert(`Session ${currentSession} done!`);
        startTimer(breakTime, function() {
-         alert("Break timer over! Prep for the next study session!!!")
+         alert("Break timer over! Prep for the next session!")
          currentSession++;
          document.getElementById("timerDisplay").textContent = hoursInput + ":" + minutesInput + ":00";
          if (currentSession <= sessionCount) {
            loopStudy();
         } else {
-            alert("All sessions are complete! Great work!");
+            alert("All done! Great work!");
       }
   
   })
-  }
+  })
+}
+}
+
 
 // reset button functionality: it resets the timer back to the original user input time.
 document.getElementById("resetButton").onclick = function resetTimer() {
@@ -120,21 +129,26 @@ document.getElementById("resetButton").onclick = function resetTimer() {
   countdown = null;
   document.getElementById("timerDisplay").textContent = `${hrAmount}:${minAmount.toString().padStart(2, '0')}:00`;
   let isPaused = true;
-  alert("Timer reset. Click the Resume or Start button to set the timer again.")
+  alert("Timer reset. Click the Resume or Start button to continue.")
 }
   
     //confirm if the "motivational quotes" checkbox is checked, then present a motivational quote every 5 minutes in the html box.
 if (document.getElementById("motivationalQuotes").checked) {
   function getRandomQuote() {
     const quotes = [
-      "The one who works is the talented one.",
       "Every minute you study is a brick in the foundation of your future.",
       "To win the year, win the months. To win the months, win the days. To win the day, win every minute.",
-      "Time is money, because the time you spend working is an investment in your future.",
-      "Work hard chasing your dreams so later you can live your dream life not just when you sleep.",
-      "Grind as if you're an idiot, and perform as if you're a genius.",
+      "Time is money; the time you spend working is an investment in your future.",
+      "Chase your dreams so later you can live your dream life 24/7, not just when you sleep.",
+      "Work hard as if you're an idiot, and perform as if you're a genius.",
       "Don't limit your challenges, challenge your limits.",
       "We all make choices, but in the end our choices make us.",
+      "Do the best you can until you know better. Then when you know better, do better.",
+      "Life is about making an impact, not just an income.",
+      "To fail to prepare is to prepare to fail.",
+      "You have the chance to progress towards your perfect life every day.",
+      "Maybe your mind gives up, but don't let your heart give up.",
+      "Prove everyone wrong."
     ];
     return quotes[Math.floor(Math.random() * quotes.length)];
   }
