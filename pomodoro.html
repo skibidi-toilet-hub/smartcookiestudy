@@ -10,7 +10,7 @@
 
 <body>
     <!--This is just a quote to motivate users-->
-    <h3 class="cornerquote">Luck finds its way to those who have <br> put in the hard work</h3>
+    <h3 class="cornerquote">Luck finds its way to those who have put in the hard work</h3>
 
     <div class="container">
         <label for="taskCheckbox" id="taskLabel">To-Do List</label>
@@ -19,8 +19,7 @@
 
 
     <!--This is the timer section where users can set a timer for work and break periods-->
-        <div id="pinBox">What would you like to focus on (pin) right now? <div>
-       <br>
+
             <div id="timerDisplay">0:25:00</div>
        <br>
         <button id="startButton" class="timerbutton">Start</button>
@@ -30,6 +29,8 @@
 
 <!--This is the collapsable section where users can set the timer status-->
 
+     <button id="openbtn" onclick="openNav()">&#9776; timer settings</button> 
+    
     <div id="mySidebar" class="sidebar">
   <button id="closebtn" onclick="closeNav()">&times;</button> <!--the close "X" button for the sidebar-->
     <h2>Timer settings</h2>
@@ -46,7 +47,6 @@
     </div>
 
 <div id="main">
-  <button id="openbtn" onclick="openNav()">&#9776; timer settings</button> 
 </body>
 <footer>
     <p class="footnotes">Join our discord server GREAT EXPECTASIANS! :D We are a community of Asian students who support each other in our studies and beyond: <a href= https://discord.gg/7pjGYkY4W4>Join here!</a></p>
