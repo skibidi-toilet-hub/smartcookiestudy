@@ -5,6 +5,18 @@
 }
 
 body {
-  
   background-image: url(https://www.dreamstime.com/pastel-sky-clouds-wallpaper-aesthetic-background-heavenly-skies-fluffy-clouds-dreamy-sky-cloudscape-art-pastel-sky-filled-image405473851);
 }
+
+.timerDisplay {
+    font-style: bold;
+    font-size: 100px;
+    text-align: center;
+}
+
+.cornerquote {
+    font-style: italic;
+    font-size: 100px;
+    text-align: right;
+}
+
