@@ -10,13 +10,12 @@ let isBreak = false;
 //these are the controls first for the collapsable sidebar of timer settings:
 
 function openNav() {
-  document.getElementById("mySidebar").style.width = "300px";
-  document.getElementById("mySidebar").style.height = "100%";
-}
+    sidebar.style.visibility = 'visible' ;
+  }
+ 
 
 function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document .getElementById("mySidebar").style.height = "0";
+  sidebar.style.visibility = 'hidden';
 }
 
 //........................
