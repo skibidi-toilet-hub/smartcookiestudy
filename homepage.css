@@ -2,10 +2,10 @@
  
 .heading {
     color: white;
-    font-family: 'Marker Felt, fantasy'
+    font-family: 'Arial Narrow', Arial, sans-serif;
     font-variant: small-caps;
     font-weight: bold;
-    font-size: 60px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .footnotes {
-    font-size: 10px;
+    font-size: 20px;
     color: white 
     text-align: center;
     font-style: italic;
@@ -24,8 +24,7 @@
 }
 
 body {
- background-image: url("https://t4.ftcdn.net/jpg/02/67/40/21/240_F_267402109_jZvsqRQUvSxohAOmcUt549jlapqoRHM0.jpg");
- background-size: cover;
+ background-image: url("https://www.magnific.com/free-photos-vectors/pixel-cookie");
 }
 
 main {
