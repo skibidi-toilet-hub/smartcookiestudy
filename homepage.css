@@ -2,7 +2,7 @@
  
 .heading {
     color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Marker Felt, fantasy'
     font-variant: small-caps;
     font-weight: bold;
     font-size: 60px;
@@ -17,15 +17,15 @@
 
 .footnotes {
     font-size: 10px;
+    color: white 
     text-align: center;
     font-style: italic;
     
 }
 
 body {
-
  background-image: url("https://t4.ftcdn.net/jpg/02/67/40/21/240_F_267402109_jZvsqRQUvSxohAOmcUt549jlapqoRHM0.jpg");
-
+ background-size: cover;
 }
 
 main {
