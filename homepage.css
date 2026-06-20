@@ -2,7 +2,7 @@
  
 .heading {
     color: white;
-    font-family: 'Courier New';
+    font-family: 'Arial';
     font-variant: small-caps;
     font-weight: bold;
     font-size: 50px;
@@ -68,8 +68,7 @@ div h3 {
  align-items: center;
  text-align: center;
  background-color: #89CFF0;
- width: 350px;
- height: 350px;
+ width: 400px;
  padding: 20px;
  aspect-ratio: 1/1;
  cursor: pointer; 
@@ -83,6 +82,11 @@ div h3 {
  flex-direction: column;
 }
 
+br .gap {
+ display: block;
+ content: "";
+ margin-top: 20px
+}
 
 
 
