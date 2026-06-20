@@ -2,7 +2,7 @@
  
 .heading {
     color: white;
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Courier New';
     font-variant: small-caps;
     font-weight: bold;
     font-size: 50px;
@@ -16,11 +16,11 @@
 
 .footnotes {
     font-size: 15px;
-    color: white 
-    position: absolute
-    bottom: 0
-    left: 0 
-    padding: 10px
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0 ;
+    padding: 10px;
     font-style: italic;
     
 }
@@ -61,6 +61,7 @@ div h3 {
  gap: 150px;
  width: 100%;
  justify-content: center;
+ padding: 50px;
 }
 
 .selections {
@@ -70,7 +71,7 @@ div h3 {
  align-items: center;
  text-align: center;
  background-color: #91caeb;
- width: 50%;
+ width: 260%;
  padding: 20px;
  aspect-ratio: 1/1;
  cursor: pointer; 
