@@ -3,14 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
         timerDisplay: document.getElementById('timerDisplay'),
         startButton: document.getElementById('startButton'),
         resetButton: document.getElementById('resetButton'),
-        pauseButton: document.getElementById('pauseButton')
     }
-let isPaused = true;
-let isBreak = false;
+let isPaused = false;
 })
 
 function getRandomQuote() {
-    const quotes = [
+    const quotes = [ 
       "Every minute you study is a brick in the foundation of your future.",
       "To win the year, win the months. To win the months, win the days. To win the day, win every minute.",
       "Time is money; the time you spend working is an investment in your future.",
@@ -27,8 +25,8 @@ function getRandomQuote() {
     return quotes[Math.floor(Math.random() * quotes.length)];
   }
 
-
   // QUOTES ⬆️  CONTROLS + REST ⬇️
+
 function openNav() {
     sidebar.style.visibility = 'visible' ;
   }
@@ -53,7 +51,7 @@ function updateDisplay(time)  {
 }
 
 function startTimer(time, callback) {
-  if (countdown === null || isPaused === true) {
+  if (countdown === null || isPaused = false) {
     countdown = setInterval(function() {
       updateDisplay(time);
       time--;
@@ -70,7 +68,7 @@ function startTimer(time, callback) {
     }
 }
 
-function loopTimer(loopStudy, i = 1) {
+function loopTimer(sessionNumber, i = 1) {
   if (i > sessionNumber) {
     document.getElementById("notifBox").textContent = "all sessions done! :D GREAT WORK";
     return;
@@ -98,24 +96,21 @@ function loopTimer(loopStudy, i = 1) {
   let brkMinAmount = breakMinutesInput === "" ? 5 : parseInt(breakminutesInput, 10);
   let brkSecondsAmount = breakSecondsInput === ""? 0 : parseInt(breakSecondsInput, 10);
   const quoteInterval = setInterval(getRandomQuote(), 5 * 60 * 1000)
-  loopStudy(sessionNumber, i = 1);
+  if (countdown === null) {
+      loopStudy(sessionNumber, 1);
+      isPaused = false
+  }
+     else {
+         isPaused = !isPaused
+     }
  }
  
-//pause timer function: it pauses the timer, but does not reset it.
-
-document.getElementById("pauseButton").onclick = function pauseTimer() {
-  if (!isPaused) {
-    clearInterval(countdown);
-    countdown = null;
-    isPaused = true;
-  }
-  // need to also dedicate resume to the start button...
 
 document.getElementById("resetButton").onclick = function resetTimer() {
   clearInterval(countdown);
   countdown = null;
   document.getElementById("timerDisplay").textContent = `${hrAmount}:${minAmount.toString().padStart(2, '0')}:00`;
-  let isPaused = true;
+  let isPaused = false;
   alert("Timer reset. Click the Start button to continue.")
 }
 
