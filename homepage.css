@@ -11,14 +11,16 @@
 
 .italics {
     font-style: italic;
-    font-size: 20px;
     text-align: center;
 }
 
 .footnotes {
-    font-size: 20px;
+    font-size: 15px;
     color: white 
-    text-align: center;
+    position: absolute
+    bottom: 0
+    left: 0 
+    padding: 10px
     font-style: italic;
     
 }
@@ -33,3 +35,106 @@ main {
     border-radius: 10px;
     text-align: center;
     color: white;
+}
+
+.icons {
+ font-size: 70px;
+}
+
+div h3 {
+ font-size: 40px;
+ font-family: 'Georgia';
+ font-variant: small-caps;
+ font-weight: bold;
+}
+
+.caption {
+ font-size: 20px;
+ font-family: 'Courier New';
+}
+
+
+.container {
+ display: flex;
+ gap: 40px;
+ justify-content: center;
+}
+
+.selections {
+ display: flex;
+ border: 2px black;
+ border-radius: 4px;
+ align-items: center;
+ text-align: center;
+ background-color: #fcf9d7;
+ width: 50%;
+ padding: 20px;
+ aspect-ratio: 1/1;
+ cursor: pointer; 
+}
+
+.container a {
+ text-decoration: none;
+ color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
