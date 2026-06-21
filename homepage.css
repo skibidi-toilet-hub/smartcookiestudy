@@ -17,7 +17,7 @@
 .footnotes {
     font-size: 15px;
     color: white;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0 ;
     padding: 10px;
@@ -53,6 +53,7 @@ div h3 {
 .caption {
  font-size: 20px;
  font-family: 'Courier New';
+ font-weight: bold;
 }
 
 
@@ -85,7 +86,7 @@ div h3 {
 br .gap {
  display: block;
  content: "";
- margin-top: 20px
+ margin-top: 10px
 }
 
 
