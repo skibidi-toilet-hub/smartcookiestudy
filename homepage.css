@@ -2,11 +2,12 @@
  
 .heading {
     color: white;
-    font-family: 'Arial';
+    font-family: 'Georgia';
     font-variant: small-caps;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
+    padding: 30px;
 }
 
 .italics {
@@ -14,7 +15,7 @@
     text-align: center;
 }
 
-.footnotes {
+.footnote {
     font-size: 15px;
     color: white;
     position: relative;
@@ -44,8 +45,8 @@ main {
 }
 
 div h3 {
- font-size: 40px;
- font-family: 'Georgia';
+ font-size: 32px;
+ font-family: 'Arial';
  font-variant: small-caps;
  font-weight: bold;
 }
@@ -86,11 +87,19 @@ div h3 {
 br .gap {
  display: block;
  content: "";
- margin-top: 10px
+ margin-top: 5px
 }
 
+.subheading {
+ font-weight: bold;
+ font-size: 24px;
+}
 
-
+#footnotes {
+ background-color: #9e969c;
+ opacity: 60%;
+ padding: 10px;
+}
 
 
 
