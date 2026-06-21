@@ -4,8 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
         startButton: document.getElementById('startButton'),
         resetButton: document.getElementById('resetButton'),
     }
-let isPaused = false;
 })
+
+let countdown = null
+let currentSession = 1
+let studyInput = 0
+let breakInput = 0
+let studyTime = 0 
+let breakTime = 0 
+let isBreak = false
 
 function getRandomQuote() {
     const quotes = [ 
@@ -37,9 +44,12 @@ function closeNav() {
 
 document.getElementById("timerDisplay").textContent = `${hrAmount}:${minAmount.toString().padStart(2, '0')}:00`;
 
-let countdown = null
-let studyTime = (hrAmount * 3600) + (minAmount * 60);
-let breakTime = (brkMinAmount * 60) + brkSecondsAmount;
+//determining variabless...
+let studyInput = (hrAmount * 3600) + (minAmount * 60); //backup times for inputting 
+let breakInput = (brkMinAmount * 60) + brkSecondsAmount;
+
+let studyTime = studyInput
+let breakTime = breakInput
 
 //solely just updating the clock display
 function updateDisplay(time)  {
@@ -51,7 +61,7 @@ function updateDisplay(time)  {
 }
 
 function startTimer(time, callback) {
-  if (countdown === null || isPaused = false) {
+  if (countdown === null) {
     countdown = setInterval(function() {
       updateDisplay(time);
       time--;
@@ -62,46 +72,88 @@ function startTimer(time, callback) {
        }
       }, 1000);
     }
-      
+}
+
+function loopStudy() {
+    if (currentSession > sessionNumber) {
+        document.getElementById("notifBox").textContent = "all sessions done! :D GREAT WORK!"
+        currentSession = 0
+        return;
+    }
+    
+    if (!isBreak) {
+        studyTime = studyInput;
+        //not break, so therefore is study
+        document.getElementById("notifBox").textContent = `session ${currentSession} starting! get ready!`;
+        startTimer(studyTime, function() {
+            isBreak = true;
+            loopStudy();
+        });
+  }
     else {
-       document.getElementById("notifBox").textContent = "timer already active!"
+        breakTime = breakInput;
+        //must be breaktime now...
+        document.getElementById("notifBox").textContent = "study time over! break time!";
+        startTimer(breakTime, function() {
+            isBreak = false;
+            currentSession += 1;
+            loopStudy();
+        });
     }
 }
 
-function loopTimer(sessionNumber, i = 1) {
-  if (i > sessionNumber) {
-    document.getElementById("notifBox").textContent = "all sessions done! :D GREAT WORK";
-    return;
-  }
-  document.getElementById("notifBox").textContent = `session ${i} starting! get ready!`;
-  startTimer(studyTime, function() {
-      document.getElementById("notifBox").textContent = "study time over! break time!"
-      startTimer(breakTime, function () {
-          document.getElementById("notifBox").textContent = "break time over! study time!"
-          i += 1
-          loopStudy(sessionNumber, i);
-      });
-  });
+function resumeTimer() {
+    if (isBreak) {
+        startTimer(breakTime, function() {
+            isBreak = false;
+            currentSession += 1;
+            loopStudy();
+        });
+    }
+    else {
+        startTimer(studyTime, function() {
+            isBreak = true;
+            loopStudy();
+        });
+    }
 }
+          
 
+      
  document.getElementById("startButton").onclick = function timer() {
-  const hoursInput = document.getElementById('hoursInput').value.trim();
-  const minutesInput = document.getElementById('minutesInput').value.trim();
-  const breakMinutesInput = document.getElementById('breakMinutesInput').value.trim();
-  const breaSecondsInput = document.getElementById('breakSecondsInput').value.trim();
-  const sessionInput = document.getElementById("sessionCountInput").value.trim();
-  let sessionNumber = sessionInput === "" ? 4 : parseInt(sessionInput, 10);
-  let hrAmount =  hoursInput === "" ? 0 : parseInt(hoursInput, 10);
-  let minAmount = minutesInput === "" ? 25 : parseInt(minutesInput, 10);
-  let brkMinAmount = breakMinutesInput === "" ? 5 : parseInt(breakminutesInput, 10);
-  let brkSecondsAmount = breakSecondsInput === ""? 0 : parseInt(breakSecondsInput, 10);
-  const quoteInterval = setInterval(getRandomQuote(), 5 * 60 * 1000)
-  if (countdown === null) {
-      loopStudy(sessionNumber, 1);
-      isPaused = false
-  }
-     else {
-         isPaused = !isPaused
+  if (countdown === null) { 
+      //if countdown is null, this indicates it's inactive, so we start it. (2 options: resume/start over)
+      startButton.textContent = "pause";
+      
+      if (currentSession > 0) {
+          //values already entered, timer already active on a session 
+          resumeTimer();
+      } else { //no existing session yet. 
+          //need to start a new session lol
+            const hoursInput = document.getElementById('hoursInput').value.trim();
+            const minutesInput = document.getElementById('minutesInput').value.trim();
+            const breakMinutesInput = document.getElementById('breakMinutesInput').value.trim();
+            const breaSecondsInput = document.getElementById('breakSecondsInput').value.trim();
+            const sessionInput = document.getElementById("sessionCountInput").value.trim();
+            //study
+            sessionNumber = sessionInput === "" ? 4 : parseInt(sessionInput, 10);
+            let hrAmount =  hoursInput === "" ? 0 : parseInt(hoursInput, 10);
+            let minAmount = minutesInput === "" ? 25 : parseInt(minutesInput, 10);
+            //break
+            let brkMinAmount = breakMinutesInput === "" ? 5 : parseInt(breakMinutesInput, 10);
+            let brkSecondsAmount = breakSecondsInput === ""? 0 : parseInt(breakSecondsInput, 10);
+            //quotes
+            getRandomQuote();
+            const quoteInterval = setInterval(getRandomQuote, 5 * 60 * 1000)
+            currentSession = 1
+            loopStudy();
+    
+    } 
+  } else { 
+      //countdown is NOT null, therefore it is active. this means we should pause it.
+         clearInterval(countdown);
+         countdown = null;
+         startButton.textContent = "start"; //need to wait until unpaused again
      }
  }
  
@@ -110,7 +162,6 @@ document.getElementById("resetButton").onclick = function resetTimer() {
   clearInterval(countdown);
   countdown = null;
   document.getElementById("timerDisplay").textContent = `${hrAmount}:${minAmount.toString().padStart(2, '0')}:00`;
-  let isPaused = false;
   alert("Timer reset. Click the Start button to continue.")
 }
 
