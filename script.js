@@ -4,32 +4,66 @@ const timer = {
    display: document.getElementById("timerDisplay"),
 };
 
-let studyTime = 1500;
+let studyTime = 60;
+let breakTime = 30;
+let isBreak = false;
+timer.display.textContent = "00:01:00";
 
-function updateDisplay() {
-   let hrs = Math.floor(studyTime / 3600);
-   let mins = Math.floor((studyTime % 3600) / 60);
-   let secs = studyTime % 60; 
+
+function updateDisplay(time) {
+   let hrs = Math.floor(time / 3600);
+   let mins = Math.floor((time % 3600) / 60);
+   let secs = time % 60; 
    timer.display.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
    
 }
 
-timer.startBtn.onclick = function() {
-   if (timer.startBtn.textContent === "Start") {
-      timer.startBtn.textContent = "Pause";
-      countdown = setInterval(() => {
-         studyTime--;
-         updateDisplay();
-         if (studyTime <= 0) {
-            clearInterval(countdown);
-            alert("Time's up! Take a break.");
+
+function runTimer(time) {
+let countdown = setInterval(() => {
+   time--;
+   updateDisplay(time);
+   if (time <= 0) {
+      clearInterval(countdown);
+      isBreak = !isBreak;
          }
+      });
+   
+}
+
+startBtn.onclick = function() {
+   if (startBtn.textContent === "Start") {
+      startBtn.textContent = "Pause";
+      if (!isBreak) {
+         runTimer(studyTime);
       }
-      , 1000);
+      else {
+         runTimer(breakTime);
+      }
+
    }
    else {
-      timer.startBtn.textContent = "Start";
+      startBtn.textContent = "Start";
       clearInterval(countdown);
    }
+   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
