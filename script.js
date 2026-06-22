@@ -4,8 +4,11 @@ const timer = {
    display: document.getElementById("timerDisplay"),
 };
 
-let studyTime = 60;
-let breakTime = 30;
+let studyInput = 60;
+let breakInput = 30;
+let studyTime = studyInput;
+let breakTime = breakInput;
+
 let isBreak = false;
 timer.display.textContent = "00:01:00";
 
@@ -23,6 +26,14 @@ function runTimer(time) {
 countdown = setInterval(() => {
    time--;
    updateDisplay(time);
+   //changed part:
+   if (!isBreak) {
+      studyTime = time;
+   }
+   else {
+      breakTime = time;
+   }
+   //..................
    if (time <= 0) {
       clearInterval(countdown);
       isBreak = !isBreak;
