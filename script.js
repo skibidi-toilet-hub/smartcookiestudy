@@ -10,10 +10,10 @@ let isBreak = false;
 timer.display.textContent = "00:01:00";
 
 
-function updateDisplay(time) {
-   let hrs = Math.floor(time / 3600);
-   let mins = Math.floor((time % 3600) / 60);
-   let secs = time % 60; 
+function updateDisplay(t) {
+   let hrs = Math.floor(t / 3600);
+   let mins = Math.floor((t % 3600) / 60);
+   let secs = t % 60; 
    timer.display.textContent = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
    
 }
