@@ -15,17 +15,6 @@
     text-align: center;
 }
 
-.footnote {
-    font-size: 15px;
-    color: white;
-    position: relative;
-    bottom: 0;
-    left: 0 ;
-    padding: 10px;
-    font-style: italic;
-    
-}
-
 body {
  background-image: url("https://media.istockphoto.com/id/521714583/photo/new-york-city-midtown-with-empire-state-building-at-sunset.jpg?s=612x612&w=0&k=20&c=paLoZfZnaZSfaBK_DxLls_Ii0hD3r2PBKSlS6M1QxVU=");
  background-size: cover;
@@ -102,8 +91,20 @@ br .gap {
 
 #footnotes {
  background-color: #9e969c;
- opacity: 36%;
+ opacity: 50%;
  padding: 5px;
+}
+
+.footnote {
+    font-size: 15px;
+    color: white;
+    position: relative;
+    bottom: 0;
+    left: 0 ;
+    padding: 10px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    
 }
 
 
