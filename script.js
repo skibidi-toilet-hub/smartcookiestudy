@@ -22,7 +22,7 @@ function updateDisplay(time) {
 }
 
 
-function runTimer(time, onFinish) {
+function runTimer(time, callback) {
 countdown = setInterval(() => {
    time--;
    updateDisplay(time);
@@ -37,7 +37,7 @@ countdown = setInterval(() => {
    if (time <= 0) {
       clearInterval(countdown);
       isBreak = !isBreak;
-      if (onFinish) onFinish;
+      if (callback) callback();
          }
       }, 1000);
    
@@ -53,6 +53,7 @@ timer.startBtn.onclick = function() {
          updateDisplay(breakTime);
          runTimer(breakTime, function() {
             alert("All done!");
+            timer.startBtn.textContent = "Start"
          });
       });
    }
