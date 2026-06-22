@@ -20,7 +20,7 @@ function updateDisplay(time) {
 
 
 function runTimer(time) {
-let countdown = setInterval(() => {
+countdown = setInterval(() => {
    time--;
    updateDisplay(time);
    if (time <= 0) {
