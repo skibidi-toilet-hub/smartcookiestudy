@@ -91,7 +91,7 @@ br .gap {
 
 #footnotes {
  background-color: #9e969c;
- opacity: 50%;
+ opacity: 60%;
  padding: 5px;
 }
 
@@ -103,7 +103,7 @@ br .gap {
     left: 0 ;
     padding: 10px;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.8);
+    color: white
     
 }
 
