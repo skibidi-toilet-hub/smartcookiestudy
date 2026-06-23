@@ -1,22 +1,55 @@
-/*timerstyle.css*/
+body {
+  background-image: url('https://wallpapercave.com/wp/wp12811362.png');
+  background-size: cover;
+  color: white;
+  font-family: 'Arial';
+}
+
+.timerButtons {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.button {
+  color: black;
+  font-weight: bold;
+  background-color: white;
+  font-size: 15px;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 120px;
+  height: 40px;
+}
+
+
+#timerDisplay {
+  font-family: 'Georgia';
+  color: white;
+  font-size: 200px;
+  text-align: center;
+  font-weight: bold;
+}
 
 .sidebar {
-  visibility : hidden
+  display: block;
+  border: 1px solid white;
+  padding: 15px;
+  display: none;
+  border-radius: 10px;
+  background-color: black;
 }
 
-body {
-  background-image: url(https://www.dreamstime.com/pastel-sky-clouds-wallpaper-aesthetic-background-heavenly-skies-fluffy-clouds-dreamy-sky-cloudscape-art-pastel-sky-filled-image405473851);
-}
-
-.timerDisplay {
-    font-style: bold;
-    font-size: 100px;
-    text-align: center;
+.footnotes {
+  color: white;
+  font-size: 10px;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  
 }
 
 .cornerquote {
-    font-style: italic;
-    font-size: 20px;
-    text-align: right;
+  color: white;
 }
-
