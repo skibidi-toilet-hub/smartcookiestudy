@@ -44,8 +44,8 @@ body {
 .footnotes {
   color: white;
   font-size: 10px;
-  position: relative;
-  right: 0px;
+  position: absolute;
+  left: 0px;
   bottom: 0px;
   
 }
