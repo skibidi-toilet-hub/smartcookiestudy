@@ -10,34 +10,42 @@
 
 <body>
   
+  <h3 class="cornerquote"> <em>Pomodoro Timer</em> by SmartCookie </h3> <br>
     <h3 class="cornerquote"> ...  </h3>
   
-
+  <div id=notifBox class="notifications"> </div>
             <div id="timerDisplay">0:25:00</div>
        <br>
-        <button id="startButton" class="timerbutton">Start</button>
-        <button id="resetButton"class="timerbutton">Reset</button> <br>
+        <div class="timerButtons">
+        <button id="startButton" class="button">Start</button>
+        <button id="resetButton" class = "button">Reset</button> <br>
+        </div>
+  <br>
 
-     <button id="openbtn">&#9776;</button> 
-    
-    <div id="mySidebar" class="sidebar">
+ 
+     <button id="openButton" class = "button">&#9776;  Settings </button> 
+  <h1>                        </h1>
+  
+ <div id="mySettings" class="sidebar"> 
         
-  <button id="closebtn">&times;</button>
-    <h2>Timer settings</h2>
-      Work time: <input type="number" id="hoursInput" placeholder="Hours" min="0" max="3"> : <input type="number" id="minutesInput" placeholder="Minutes (25 by default)" min="1" max="59">  
-      Break time: <input type="number" id="breakMinutesInput" placeholder="Minutes (5 by default)" min="1" max="60">:<input type="number" id="breakSecondsInput" placeholder="Seconds (0 by default)" min="00" max="59">
+  <button id="closeButton" class="button">&times; Save & Exit </button>
+      
+    <h2>Timer Settings ⚙️</h2>
+      
+      Work time: <input type="number" id="hoursInput" placeholder="Hours" min="0" max="6"> : <input type="number" id="minutesInput" placeholder="Minutes (25 by default)" min="1" max="59">|
+      
+      Break time: <input type="number" id="breakMinutesInput" placeholder="Minutes (5 by default)" min="1" max="60">:<input type="number" id="breakSecondsInput" placeholder="Seconds (0 by default)" min="00" max="59">|
       Number of sessions: <input type="number" id="sessionInput" placeholder="Sessions (3 by default)" min="1" max="10">
+   <h1>                                                          </h1>
 
-      inputcheckbox: <input type="checkbox" id="quotesCheckbox"> Motivational Quotes
+     
 
-    </div>
-
+</div>
+<br><br>
 
 </body>
 <footer>
-    <p class="footnotes">Join our discord server GREAT EXPECTASIANS! :D We are a community of Asian students who support each other in our studies and beyond: <a href= https://discord.gg/7pjGYkY4W4>Join here!</a></p>
-    <p class = "footnotes">Disclaimer: You don't have to be Asian to join the group chat. We accept hard-working students of every kind as long as you are respectful and abide to the guidelines.</p>
-    <p class="footnotes">This timer is inspired by the Pomodoro technique, which suggests working for 25 minutes and then taking a 5-minute break. You can customize the work and break times in the settings.</p>
+  <p class = "footnotes">Need a ride back to the homepage? <a href="index.html">Click Here!</a></p>
 </footer>
 
 
