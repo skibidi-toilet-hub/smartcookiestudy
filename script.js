@@ -6,8 +6,8 @@ const timer = {
    display: document.getElementById("timerDisplay"),
 };
 
-let studyInput = 600;
-let breakInput = 300;
+let studyInput = 60 * 45;
+let breakInput = 300 * 3;
 let studyTime = studyInput;
 let breakTime = breakInput;
 let isBreak = false;
