@@ -66,7 +66,7 @@ body {
   border-radius: 10px;
   background-color: rgb(165 165 180 / 60%);
   backdrop-filter: blur(5px);
-  transform: translate(0, -15vh);
+  transform: translate(0, -20vh);
 }
 
 .sidebar > p {
@@ -91,7 +91,6 @@ body {
   max-width: 40vw;
   font-size: 23px;
   font-style: italic;
- 
   
 }
 
@@ -101,8 +100,6 @@ body {
   padding: 0px;
   border: none;
   background: none;
- 
-
   
 }
 
@@ -151,6 +148,5 @@ sidebar > a {
   font-size: 2vw;
   font-weight: bold;
   cursor: pointer;
-
 }
 
