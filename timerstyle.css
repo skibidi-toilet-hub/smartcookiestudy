@@ -1,55 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 body {
-  background-image: url('https://wallpapercave.com/wp/wp12811362.png');
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQslp6fKruEZLjziBjSE6Ypg7ESjHVcPzB9fvDnNBYWu16zMGDxEgAcIWCC&s=10');
   background-size: cover;
   color: white;
-  font-family: 'Arial';
+  font-family: 'Inter', 'Georgia';
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  image-rendering: smooth;
+  margin: 0;
+  padding: 0;
+  
 }
 
 .timerButtons {
   justify-content: center;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 30px;
+  padding: 10vh;
 }
 
-.button {
-  color: black;
+.buttons {
+  color: rgb(50 50 50/ 100%);
   font-weight: bold;
-  background-color: white;
+  background-color: rgb(255 255 255 / 100%);
   font-size: 15px;
-  border: 2px solid black;
-  border-radius: 20px;
-  width: 120px;
-  height: 40px;
+  border: 1px solid rgb(0 0 0 / 30%);
+  box-shadow: 6px 6px 2px rgb(0 0 0/ 20%);
+  border-radius: 25px;
+  width: 12%;
+  aspect-ratio: 4 / 1.1;
+  letter-spacing: 1px;
 }
 
 
 #timerDisplay {
   font-family: 'Georgia';
-  color: white;
-  font-size: 200px;
+  color: rgb(255, 255, 255);
+  font-size: 15vw;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  
+}
+
+
+.glassTimerDisplay {
+  font-family: 'Georgia';
+  color: rgba(205, 205, 228, 0.5);
+  font-size: 15vw;
   text-align: center;
   font-weight: bold;
 }
 
 .sidebar {
-  display: block;
   border: 1px solid white;
   padding: 15px;
   display: none;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgb(165 165 180 / 60%);
+  backdrop-filter: blur(5px);
+}
+
+.sidebar > p {
+  font-weight: bold;
+  color: white;
+  font-size: 5px;
 }
 
 .footnotes {
-  color: white;
-  font-size: 10px;
-  position: absolute;
-  left: 0px;
+  font-style: italic;
+  position: relative;
+  right: 0px;
   bottom: 0px;
   
 }
 
 .cornerquote {
   color: white;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  max-width: 40vw;
+  font-size: 23px;
+  font-style: italic;
+ 
+  
 }
+
+.background {
+  width: 120px;
+  height: 90px;
+  padding: 0px;
+  border: none;
+  background: none;
+ 
+
+  
+}
+
+.background > img {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  border: 0.5px solid rgb(255 255 255/ 10%);
+  border-radius: 10px;
+  background-position: center center;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid rgb(0 0 0/ 30%);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+sidebar > a {
+  font-size: 6px;
+}
+
+.quote {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  justify-content: right;
+  text-align: right;
+}
+
+.logos {
+  transform: scale(0.5);
+  transform-origin: top left;
+}
+
+
+.timer {
+  transform: translate(0, -25vh);
+  gap: 1px;
+
+}
+
+
