@@ -3,42 +3,134 @@
    
 <head>
 <title>Bite-Sized Timer</title>    
+   
     <link rel="stylesheet" href ="timerstyle.css">
-    <script src="script.js" defer></script>
-<meta charset="UTF-8">
-</head>
-
+   <script src="script.js" defer></script> 
+   <meta charset="UTF-8">
 <body>
   
-  <h3 class="cornerquote"> <em>Pomodoro Timer</em> by SmartCookie </h3> <br>
-    <h3 class="cornerquote"> ...  </h3>
-  
-  <div id=notifBox class="notifications"> </div>
-            <div id="timerDisplay">0:45:00</div>
-       <br>
-        <div class="timerButtons">
-        <button id="startButton" class="button">Start</button>
-        <button id="resetButton" class = "button">Reset</button> <br>
-        </div>
-  <br>
 
- 
-     <button id="openButton" class = "button">&#9776;  Settings </button> 
-  <h1>                        </h1>
+      <a href="index.html">
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczNe0mKf26UPOuVjJDURV8PyPgiXxGUVKqU8feKYW6Othe6FVJrDdpLyndK5X2E0gjXGR2WwEovwPh-KXFiSFynOc_XvEv-tDxNMIQMHN_LS2xcT_TCXZZTaBfwyUjvX-xU862SLxwkI_MlT2vxOql1l=w256-h256-s-no-gm" class="logos" alt="cookie logo">
+      </a>
+
+    <div class="quote"> <!--quote-->
+      <h3 class="cornerquote">"To seize the day, seize every moment."  </h3>
+      </div>
+
+  
+  
+  
+  <div class="timer"> <!--timer-->
+    <div id=messageBox class="messages">What will you focus on today? </div>
+    <div id="timerDisplay">0:25:00</div>
+     
+        <div class="timerButtons">
+        <button id="openButton" class="buttons">Settings </button> 
+        <button id="startButton" class = "buttons">Start</button>
+        <button id="resetButton" class = "buttons">Reset</button> <br>
+        </div>
+  </div>
+
   
  <div id="mySettings" class="sidebar"> 
         
-  <button id="closeButton" class="button">&times; Save & Exit </button>
-      
-    <h2>Timer Settings ⚙️</h2>
-      
-      Work time: <input type="number" id="hoursInput" placeholder="Hours" min="0" max="6"> : <input type="number" id="minutesInput" placeholder="Minutes (25 by default)" min="1" max="59">|
-      
-      Break time: <input type="number" id="breakMinutesInput" placeholder="Minutes (5 by default)" min="1" max="60">:<input type="number" id="breakSecondsInput" placeholder="Seconds (0 by default)" min="00" max="59">|
-      Number of sessions: <input type="number" id="sessionInput" placeholder="Sessions (3 by default)" min="1" max="10">
-   <h1>                                                          </h1>
-
+  <button id="closeButton" class = "buttons">&times; Save & Exit </button>
      
+    <h2>Timer Settings ⚙️</h2>
+  
+      
+      Work time: <input type="number" id="hoursInput" placeholder="Hours" min="0" max="6"> : <input type="number" id="minutesInput" placeholder="Minutes (25 by default)" min="1" max="59"> <br><br>
+      
+      Break time: <input type="number" id="breakMinutesInput" placeholder="Minutes (5 by default)" min="1" max="60"> : <input type="number" id="breakSecondsInput" placeholder="Seconds (0 by default)" min="00" max="59"> <br><br>
+      Number of sessions: <input type="number" id="sessionInput" placeholder="Sessions (3 by default)" min="1" max="10">
+   <h1>  
+   </h1>
+   <h5><em>please enter "0" into minutes input to clarify 0 minutes for study or break!</em></h5>
+   <p><em>_______________________________</em></p><br>
+   
+   <h2> Stylistic Options ✨ </h2>
+   <button id="glass" class = "buttons"> Glass Mode </button>
+   <br>
+   <br>
+
+   
+   <button class="background"> <!--nyc skyline-->
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczOzboTVsoUKBxhFGHfrCUoKvd2tCeXRO3L2r3vA4l8fq5MXxTVAXv_nK4YFagKKvyzYnCwhq-6TCSvbqWv7SDn5hVehCIrIvOGlK7d6r77cimWAolTR9A0i3ibg3sJiJmez8FVkQlMkeVOZIwWgq6Ro=w658-h370-s-no-gm" alt = "nyc">
+   </button>
+   
+
+    <button class="background">
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczOd91GcZNs5w72Hn3KPkFNSXaDD0zeILAdVOsPDdf-YSOXakkvWa-qbhgamn4QWm6zUHq0PCFrla-1k7YP6spjrEzwczXIy93KTnSewrlGKTWuSNeFO_9u9Hy4XLZ-hAdMbtzJrCw11lDtv9y4ZoF7v=w748-h810-s-no-gm" alt = "shanghai skyscrapers">
+   </button>
+   
+   <button class="background">
+   <img src = "https://lh3.googleusercontent.com/pw/AP1GczMhrqk-YlaXkuYDwtPqYAYXyF9QiOukNHKilzJ9upth0Um0hMHr0fygC3tclliB-gpggsc_2UfcVGFfRd6ApPFRUN_vEZQNLEJL2BlEFnVObR6NbIutGJBtaM7nQIDqB5jr_eWqF13-trpSLMrklLyi=w658-h494-s-no-gm" alt = "japanese pagoda">
+   </button>
+ 
+   
+   <button class="background"> 
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczNKBkLpIKAVxFXVMHEPu2NiVnYl2LyJS_yFlv4RlSPe84H6tZJGjSJwRZUdYIffg0fsNBI57-SgG2PnPNtIbpKJX02aLIJOSITK-nkezYFW-6WXfldSZ1ps4q8hop2CWuRiYYURO2dBhue4YL5hIFzH=w659-h494-s-no-gm" alt="boston">
+   </button>
+   
+   <button class="background">
+   <img src="https://ipt.images.tshiftcdn.com/204055/x/0/horizon-architecture-sunset-skyline-night-city-518214-pxhere-com.jpg?bg-color=%23000&dpr=1&height=1200&precrop=1.9265454545454546%3A1.2&quality=75" alt="city skyline">
+   </button>
+  
+   <br> <!--separation-->
+   
+   
+   
+   <button class="background"> <!--palm trees-->
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczNYKsQTU94dNDNCT5Je8VWe_-YOnD1poHIUwTc7fg23eims2hWabJ6Oit1hnDH9iXD1xt-psiRbHE7qrVeni46_NzKxAfef2teREqayTKkMnnb52f7km8KYn6b-qH9TAQ20K-9fr6MlnwcibslxIy_X=w499-h913-s-no-gm" alt = "palm trees">
+   </button>
+   
+    <button class="background">
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczPet51gB_R99Vm9sw41p63LFXIADM00XkOYv6B8RepXoOlAA59eVo0XBC12XD3eeytIbTEdqZGMingCAqP7rS6Vkkr84IrjDYshuFArF21yagxyx-FOEbXnhFdcMF3Qp9XIZcpAmEB7NmMFl8CwmyKi=w659-h494-s-no-gm" alt = "aquarium">
+   </button>
+   
+      <button class="background"> 
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQslp6fKruEZLjziBjSE6Ypg7ESjHVcPzB9fvDnNBYWu16zMGDxEgAcIWCC&s=10" alt="cliffs and beach">
+   </button>
+   
+   <button class="background">
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczN37peHg0xh7oycRf7t6O8sQ5Mpt5v-1BiAfQEHE-d3N8t40rum9A1jEMsmxw2lf_Be_zgXiHtFIwQjZlh9T27NXD-ecGaF_Fv6xJwqj9DRJ72Ui7EXXgCpKDeRKp2wKIgn0hCe_wUolXVgvakCusr5=w829-h621-s-no-gm" alt="aquarium with clownfish">
+   </button>
+  
+   <button class="background">
+   <img src="https://images.stockcake.com/public/4/8/7/487760cf-7eb8-4a28-8269-b16e70cfc5b0_large/sunset-beach-stroll-stockcake.jpg" alt="beach">
+   </button><br>
+   
+   
+     <button class="background"> <!--rue cremieux-->
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczMKcsF0bITM4LvXKwoWNQ3tDNeV7D858HjBk2KUhBPdPmP9IG0soV0lR5lSjngdIDtH4xiGiH7Gk0R67YFr0HoGM1w7SidTrMYPkHF_RUf-z-pi76NtnlhF5t-zPLiEYGP3tyqkyUvggfpFB3V8Rmlr=w659-h620-s-no-gm" alt = "rue cremieux">
+   </button>
+
+   
+   
+   
+    <button class="background">
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczPGA76tR7CxySBEWoBuVm0sZSno_gW4OObnMTNAFCQtW2kWRgeGQsGTlyzVZEi8yIcZ3qN_5RvDFxy74JH8yc38_m5vFLC9J3ezkZHZK7ojL2Ffwf-Id2ZhOWNmA7LwHPI1NiMy9_JH6Zx3pfmlV5AV=w739-h769-s-no-gm" alt="flower cafe">
+   </button>
+   
+   
+   <button class="background">
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczOp0HysJbCpou5rVS9_H5f7S4rKZZRDpe9xTXljonvmSRY7d9yWsx7WElAF9NnQs3l4uPy26oNcxNtyoCAU1ZL-d-EF9TBjx6ARyQD0eeK3Qv1btBYNXTRLE-YrzJqPIDnxIa-JXXsajB1Y0ulSUXSV=w685-h913-s-no-gm" alt="sacre coeur france">
+   </button>
+   
+    <button class="background">
+   <img src="https://lh3.googleusercontent.com/pw/AP1GczOCgFWFBP4fR3zz83cG-MWxgvhRZGYVAiYTx35AU5Q_hTU8o1GIwvj_VgSLqed6bkUZMkeG6N8IlDpS2VBQ3T_ijbXf8h5deMs18ngw3ihLlvZHQeTjwjoNXtThjVTnw0LfdTu2j1rZRw-FVmgm4TiR=w648-h913-s-no-gm" alt="blossoms">
+   </button>
+   
+<button class="background">
+<img src="https://lh3.googleusercontent.com/pw/AP1GczPqFLizhGaYTO7buFNeXHtH7LZGyCzDPwj0OksQnJnBCot0W12taZYmgtqJcFz43Vxd_UnaHA-EvY_apnpe5-sgZ0EipNPSUXoipzUZlDky7MKMO32QCDjXpj5Vq6vsXcM8WYiAmHrnEBz5Ca3uLl1z=w658-h390-s-no-gm" alt="MIT campus">
+</button>
+   
+   <br>
+   <h1></h1>
+   
+   
+  
 
 </div>
 <br><br>
@@ -47,5 +139,3 @@
 
 
 </html>
-
-
