@@ -148,5 +148,17 @@ sidebar > a {
   font-size: 2vw;
   font-weight: bold;
   cursor: pointer;
+  border: none;
+  justify-content: center;
+  background: none;
+  outline: none;
+  color: white;
+  width: 98vw;
+   overflow-wrap: break-word;
 }
 
+#messageBox::placeholder {
+  color: white;
+  font-size: 2.5vw
+ 
+}
