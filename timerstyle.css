@@ -145,7 +145,7 @@ sidebar > a {
 
 #messageBox {
   text-align: center;
-  font-size: 2vw;
+  font-size: 2.5vw;
   font-weight: bold;
   cursor: pointer;
   border: none;
@@ -154,7 +154,7 @@ sidebar > a {
   outline: none;
   color: white;
   width: 98vw;
-   overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #messageBox::placeholder {
