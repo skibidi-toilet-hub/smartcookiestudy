@@ -1,13 +1,15 @@
 /*homepagestyle.css*/
- 
-.heading {
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
+
+#heading {
     color: white;
-    font-family: 'Georgia';
-    font-variant: small-caps;
+    font-family: 'Inter','Georgia';
     font-weight: bold;
-    font-size: 40px;
+    font-size: 300%;
     text-align: center;
     padding: 30px;
+    
 }
 
 .italics {
@@ -16,53 +18,67 @@
 }
 
 body {
- background-image: url("https://media.istockphoto.com/id/521714583/photo/new-york-city-midtown-with-empire-state-building-at-sunset.jpg?s=612x612&w=0&k=20&c=paLoZfZnaZSfaBK_DxLls_Ii0hD3r2PBKSlS6M1QxVU=");
+ background-image: url("https://plus.unsplash.com/premium_photo-1764528639114-3f9ee8750662?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
  background-size: cover;
+ font-family: 'Inter','Georgia';
+ background-repeat: no-repeat;
+ background-position: center center;
+ background-attachment: fixed;
+ display: flex;
+ font-family: "Google Sans Code";
+ font-weight: lighter;
+ overflow-x: hidden;
  
 }
 
 main {
-    margin: 20px;
-    padding: 20px;
     border-radius: 10px;
     text-align: center;
     color: white;
+    flex: 1;
 }
 
 .icons {
- font-size: 70px;
+ font-size: 300%;
 }
 
 div h3 {
- font-size: 32px;
- font-family: 'Arial';
- font-variant: small-caps;
- font-weight: bold;
+ font-size: 150%;
+ font-family: 'Inter';
 }
 
 .caption {
- font-size: 20px;
- font-family: 'Courier New';
- font-weight: bold;
+ font-size: 100%;
+ font-family: "Google Sans Code";
+  font-weight: lighter;
+  text-decoration: none;
 }
 
+.grid-container a {
+  text-decoration: none;
+  color: inherit;
+}
 
-.container {
- display: flex;
- gap: 40px;
- justify-content: space-evenly;
+.grid-container {
+display: grid;
+grid-template-columns: repeat(clamp(1, 2, 3), minmax(300px, 24vw));
+gap: 3em;
+justify-content: center;
 }
 
 .selections {
- border: 2px solid black;
- border-radius: 40px;
+ color: white;
+ border: 2px solid white;
+ border-radius: 30px;
  align-items: center;
  text-align: center;
- background-color: #89CFF0;
- width: 400px;
- padding: 20px;
- aspect-ratio: 1/1;
+ background-color: rgb(179 210 232/ 40%);
+ -webkit- backdrop-filter: blur(1px);
+ backdrop-filter: blur(1px);
  cursor: pointer; 
+ box-shadow: 8px 8px 8px rgb(120 120 120/ 60%);
+ padding: 30px;
+ max-height: 300px;
 }
 
 .container a {
@@ -73,81 +89,222 @@ div h3 {
  flex-direction: column;
 }
 
-br .gap {
- display: block;
- content: "";
- margin-top: 5px
-}
 
 .subheading {
  font-weight: bold;
  font-size: 24px;
 }
 
-#end {
- font-style: italic;
- font-size: 37px;
-}
 
-#footnotes {
- background-color: #9e969c;
- opacity: 60%;
- padding: 5px;
-}
 
-.footnote {
-    font-size: 15px;
-    color: white;
-    position: relative;
-    bottom: 0;
-    left: 0 ;
-    padding: 10px;
+
+ a {
+    font-size: 18x;
+    color: black;
+    padding: 18px;
     font-style: italic;
-    color: white
+    text-decoration: none;
     
 }
 
+.footChoice {
+ display: flex;
+ border: 2px solid white;
+ border-radius: 40px;
+ background-color: rgb(179 210 232/ 70%);
+ -webkit- backdrop-filter: blur(6px);
+ backdrop-filter: blur(6px);
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ padding: 40px;
+ cursor: pointer; 
+ box-shadow: 8px 8px 8px rgb(120 120 120/ 60%);
+ height: 1px;
+ width: 100%;
+  
+}
+
+
+.footContainer {
+ display: grid;
+ grid-template-columns: 200px 200px;
+ gap: 1em;
+}
+
+img {
+  transform-origin: top left;
+  scale: 0.5;
+  padding: 2px;
+}
 
 
 
+/*.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 260px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  overflow: auto;
+  visibility: visible;
+  justify-content: center; 
+  flex-direction: column;
+  display: flex;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  background-color: #f7f7f7;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.content {
+  margin-left: 24vw;
+  padding: 1px 16px;
+  height: 1000px;
+ 
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  .content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
 
 
+h4 {
+  font-size: 20px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+#logo {
+  scale: 0.8;
+  transform: translate(0, -25%);
+}*/
+
+.stats {
+ margin: 0 auto;
+ display: flex;
+ align-items: flex-start;
+ justify-content: flex-start;
+ flex-direction: column;
+ color: white;
+ border: 2px solid white;
+ border-radius: 30px;
+ text-align: center;
+ background-color: rgb(179 210 232/ 40%);
+ -webkit- backdrop-filter: blur(1px);
+ backdrop-filter: blur(1px);
+ box-shadow: 8px 8px 8px rgb(120 120 120/ 60%);
+ padding: 30px;
+ width: 80vw;
+ height: 60vh;
+ min-height: 350px;
+ overflow-y: scroll;
+ 
+}
 
 
+h4 {
+  font-family: "Google Sans Code";
+  font-weight: lighter;
+  justify-content: center;
+  font-size: 0.99vw;
+}
 
 
+#header {
+  width: 100vw;
+  font-size: 1vw;
+}
+
+#logo {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#dailyQuote {
+ border: 1px solid white;
+ width: 60%;
+  padding: 12px;
+  font-size: 18px;
+  overflow-wrap: break-word;
+  min-width: 600px;
+  
+}
+
+#button {
+  width: 100%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: flex-end;
+  gap: 3px;
+  max-height: 25px;
+  padding: 2px;
+}
 
 
+#statistics {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 
+  repeat(2, 1fr);
+}
 
+.tools {
+ color: white;
+ border: 2px solid white;
+ border-radius: 30px;
+ text-align: center;
+ background-color: rgb(179 210 232/ 40%);
+ -webkit- backdrop-filter: blur(1px);
+ backdrop-filter: blur(1px);
+  cursor: pointer; 
+  box-shadow: 8px 8px 8px rgb(120 120 120/ 60%);
+  width: 25vw;
+  padding: 20px;
+ 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.grid-container2 {
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
 
 
 
